@@ -59,7 +59,6 @@ A **Movie Review & Rating Platform** where users can discover films, rate them u
 5. GitHub Repositories – Movie Review Projects
 
 ## Author
-**Harshitha Jyothula** –
-GitHub: 
+**Harshitha Jyothula** –GitHub: https://github.com/HarshithaJyothula/Movie-Review-Rating-Platform-Using-Frontend-Development/blob/main/README.md 
 
 
