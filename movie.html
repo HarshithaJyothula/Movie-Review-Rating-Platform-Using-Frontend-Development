@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Review & Rating Platform</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #000104;
+        margin: 0;
+        padding: 20px;
+        color: #ffffff;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+      }
+      .card {
+        background: #111;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        position: relative;
+      }
+      .card img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .title {
+        font-weight: 700;
+        margin: 10px 0 5px;
+      }
+      .small {
+        font-size: 13px;
+        color: #6b7280;
+      }
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      button {
+        padding: 6px 10px;
+        border: none;
+        border-radius: 5px;
+        background: #2563eb;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 5px;
+      }
+      button:hover {
+        background: #1e40af;
+      }
+      .stars {
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+        margin-top: 5px;
+        cursor: pointer;
+      }
+      .star {
+        font-size: 20px;
+        color: #e2e8f0;
+      }
+      .star.active {
+        color: #f59e0b;
+      }
+      .reviews {
+        margin-top: 10px;
+        text-align: left;
+      }
+      .review {
+        background: #222;
+        padding: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        font-size: 13px;
+      }
+      .fav {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: transparent;
+        border: 1px solid #f59e0b;
+        color: #f59e0b;
+        border-radius: 5px;
+        padding: 3px 6px;
+        cursor: pointer;
+      }
+      .fav.active {
+        background: #f59e0b;
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Movie Review & Rating Platform 🎬</h1>
+
+    <div class="grid">
+      <!-- Movie cards here: 10 movies total -->
+      <!-- Row 1: Movie 1-5 -->
+      <div class="card" data-title="Frozen">
+        <img
+          src="WhatsApp Image 2025-09-21 at 15.53.40_53550d2c.jpg"
+          alt="Frozen"
+        />
+        <div class="title">Frozen</div>
+        <div class="small">2013 • Movie</div>
+        <div class="stars" data-rating="0">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+        </div>
+        <textarea placeholder="Write a review..."></textarea>
+        <button onclick="addReview(this)">Submit Review</button>
+        <div class="reviews"></div>
+        <button class="fav" onclick="toggleFav(this)">♡ Fav</button>
+      </div>
+
+      <div class="card" data-title="F1 the movie">
+        <img src="Screenshot 2025-09-21 160600.png" alt="F1 the movie"" />
+        <div class="title">F1 the movie"</div>
+        <div class="small">2025 • Movie</div>
+        <div class="stars" data-rating="0">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+        </div>
+        <textarea placeholder="Write a review..."></textarea>
+        <button onclick="addReview(this)">Submit Review</button>
+        <div class="reviews"></div>
+        <button class="fav" onclick="toggleFav(this)">♡ Fav</button>
+      </div>
+
+      <div class="card" data-title="Shershaah">
+        <img src="Screenshot 2025-09-21 171557.png" alt="Shershaah" />
+        <div class="title">Shershaah</div>
+        <div class="small">2021 • Movie</div>
+        <div class="stars" data-rating="0">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+        </div>
+        <textarea placeholder="Write a review..."></textarea>
+        <button onclick="addReview(this)">Submit Review</button>
+        <div class="reviews"></div>
+        <button class="fav" onclick="toggleFav(this)">♡ Fav</button>
+      </div>
+
+      <div class="card" data-title="Sita Ramam">
+        <img src="Screenshot 2025-09-21 165904.png" alt="Sita Ramam" />
+        <div class="title">Sita Ramam</div>
+        <div class="small">2022 • Movie</div>
+        <div class="stars" data-rating="0">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+        </div>
+        <textarea placeholder="Write a review..."></textarea>
+        <button onclick="addReview(this)">Submit Review</button>
+        <div class="reviews"></div>
+        <button class="fav" onclick="toggleFav(this)">♡ Fav</button>
+      </div>
+
+      <div class="card" data-title="KGF">
+        <img src="Screenshot 2025-09-21 170826.png" alt="KGF" />
+        <div class="title">KGF:Chapter1</div>
+        <div class="small">2018 • Movie</div>
+        <div class="stars" data-rating="0">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+        </div>
+        <textarea placeholder="Write a review..."></textarea>
+        <button onclick="addReview(this)">Submit Review</button>
+        <div class="reviews"></div>
+        <button class="fav" onclick="toggleFav(this)">♡ Fav</button>
+      </div>
+
+      <!-- Row 2: Movie 6-10 -->
+      <div class="card" data-title="Baahubali: The Beginning ">
+        <img
+          src="Screenshot 2025-09-21 162104.png"
+          alt="Baahubali: The Beginning "
+        />
+        <div class="title">Baahubali: The Beginning</div>
+        <div class="small">2015 • Movie</div>
+        <div class="stars" data-rating="0">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+        </div>
+        <textarea placeholder="Write a review..."></textarea>
+        <button onclick="addReview(this)">Submit Review</button>
+        <div class="reviews"></div>
+        <button class="fav" onclick="toggleFav(this)">♡ Fav</button>
+      </div>
+
+      <div class="card" data-title="Mahavatar Narsimha">
+        <img src="Screenshot 2025-09-21 172118.png" alt="Mahavatar Narsimha" />
+        <div class="title">Mahavatar Narsimha</div>
+        <div class="small">2025• Movie</div>
+        <div class="stars" data-rating="0">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+        </div>
+        <textarea placeholder="Write a review..."></textarea>
+        <button onclick="addReview(this)">Submit Review</button>
+        <div class="reviews"></div>
+        <button class="fav" onclick="toggleFav(this)">♡ Fav</button>
+      </div>
+
+      <div class="card" data-title="Dangal">
+        <img src="Screenshot 2025-09-21 173128.png" alt="Dangal" />
+        <div class="title">Dangal</div>
+        <div class="small">2016 • Movie</div>
+        <div class="stars" data-rating="0">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+        </div>
+        <textarea placeholder="Write a review..."></textarea>
+        <button onclick="addReview(this)">Submit Review</button>
+        <div class="reviews"></div>
+        <button class="fav" onclick="toggleFav(this)">♡ Fav</button>
+      </div>
+
+      <div class="card" data-title="RRR">
+        <img src="Screenshot 2025-09-21 162644.png" alt="RRR" />
+        <div class="title">RRR</div>
+        <div class="small">2022 • Movie</div>
+        <div class="stars" data-rating="0">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+        </div>
+        <textarea placeholder="Write a review..."></textarea>
+        <button onclick="addReview(this)">Submit Review</button>
+        <div class="reviews"></div>
+        <button class="fav" onclick="toggleFav(this)">♡ Fav</button>
+      </div>
+
+      <div class="card" data-title="12th Fail">
+        <img src="Screenshot 2025-09-21 174100.png" alt="12th Fail" />
+        <div class="title">12th Fail</div>
+        <div class="small">2023 • Movie</div>
+        <div class="stars" data-rating="0">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+        </div>
+        <textarea placeholder="Write a review..."></textarea>
+        <button onclick="addReview(this)">Submit Review</button>
+        <div class="reviews"></div>
+        <button class="fav" onclick="toggleFav(this)">♡ Fav</button>
+      </div>
+    </div>
+
+    <script>
+      // Add Review
+      function addReview(button) {
+        const card = button.parentElement;
+        const textarea = card.querySelector("textarea");
+        const text = textarea.value.trim();
+        if (text === "") {
+          alert("Write a review");
+          return;
+        }
+        const rating = parseInt(
+          card.querySelector(".stars").getAttribute("data-rating")
+        );
+        const reviewsDiv = card.querySelector(".reviews");
+        const div = document.createElement("div");
+        div.className = "review";
+        div.textContent = `⭐${rating || 0} - ${text}`;
+        reviewsDiv.appendChild(div);
+        textarea.value = "";
+      }
+
+      // Star rating
+      document.querySelectorAll(".stars").forEach((starDiv) => {
+        starDiv.querySelectorAll(".star").forEach((star) => {
+          star.addEventListener("click", () => {
+            const val = parseInt(star.getAttribute("data-value"));
+            starDiv.setAttribute("data-rating", val);
+            starDiv.querySelectorAll(".star").forEach((s) => {
+              s.classList.toggle(
+                "active",
+                parseInt(s.getAttribute("data-value")) <= val
+              );
+            });
+          });
+        });
+      });
+
+      // Favorite toggle
+      function toggleFav(button) {
+        button.classList.toggle("active");
+        button.textContent = button.classList.contains("active")
+          ? "♥ Fav"
+          : "♡ Fav";
+      }
+    </script>
+  </body>
+</html>
