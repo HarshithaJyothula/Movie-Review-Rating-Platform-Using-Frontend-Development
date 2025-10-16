@@ -60,6 +60,6 @@ A **Movie Review & Rating Platform** where users can discover films, rate them u
 
 ## Author
 **Harshitha Jyothula** 
--GitHub: https://github.com/HarshithaJyothula/Movie-Review-Rating-Platform-Using-Frontend-Development
+-GitHub: https://github.com/HarshithaJyothula/Movie-Review-Rating-Platform-Using-Frontend-Development   
 
 
